@@ -19,6 +19,7 @@ class UserController {
   async doLogin(cxt, next) {
     try {
       const { id, name } = cxt.request.body;
+
       /**
        * 生成token
        * id, name 数据
@@ -30,7 +31,16 @@ class UserController {
         expiresIn: 60 * 60 * 24 * 14,
         algorithm: "RS256",
       });
-      cxt.body = { code: 200, id, name, token };
+      console.log(token, "token");
+      cxt.body = {
+        code: 200,
+        msg: "登录成功",
+        data: {
+          id,
+          name,
+          token,
+        },
+      };
     } catch (error) {
       console.log(error, "UserController");
     }

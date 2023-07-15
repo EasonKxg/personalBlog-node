@@ -37,6 +37,7 @@ const VerifyLoginAuth = async (cxt, next) => {
     const { name, password } = cxt.request.body;
     if (!name || !password) {
       const error = new Error(errorTypes.PARAMETER_IS_NULL);
+      console.log(cxt, "cxt");
       cxt.app.emit("error", error, cxt);
       return;
     }

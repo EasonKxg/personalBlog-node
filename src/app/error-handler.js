@@ -95,6 +95,7 @@ const errorHandler = (error, cxt) => {
   }
   cxt.status = status;
   cxt.body = message;
+  console.log(cxt.body);
 };
 
 module.exports = errorHandler;
