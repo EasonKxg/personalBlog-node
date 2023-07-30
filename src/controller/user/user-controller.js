@@ -94,6 +94,20 @@ class UserController {
       console.log(error, "UserController");
     }
   }
+
+  // 获取所有的用户
+  async getAllUserList(cxt, next) {
+    try {
+      const data = await UserService.getAllUser();
+      cxt.body = {
+        code: 200,
+        data: data,
+        msg: "请求成功  ",
+      };
+    } catch (error) {
+      console.log(error, "UserController");
+    }
+  }
 }
 
 module.exports = new UserController();

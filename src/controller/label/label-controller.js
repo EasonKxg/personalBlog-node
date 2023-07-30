@@ -3,6 +3,18 @@ const labelService = require("../../service/label/label-service");
 const { reqSuccess, delSuccess } = require("../../global/success-types");
 
 class LabelController {
+  async labelList(cxt, next) {
+    try {
+      const data = await labelService.getLabelAllList();
+      cxt.body = {
+        code: 200,
+        msg: "请求成功",
+        data,
+      };
+    } catch (error) {
+      console.log(error, "LabelController");
+    }
+  }
   async labelInsert(cxt, next) {
     try {
       const { name } = cxt.request.body;

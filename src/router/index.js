@@ -15,7 +15,7 @@ const useRouter = (app) => {
       exposeHeaders: ["WWW-Authenticate", "Server-Authorization", "x-show-msg"],
       maxAge: 5, //  该字段可选，用来指定本次预检请求的有效期，单位为秒
       credentials: true, // 允许携带用户凭证
-      allowMethods: ["GET", "POST", "PUT", "DELETE"], // 允许的请求方法
+      allowMethods: ["GET", "POST", "PUT", "DELETE", "PATCH"], // 允许的请求方法
       allowHeaders: [
         "Content-Type",
         "Authorization",

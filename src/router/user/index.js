@@ -11,6 +11,9 @@ const {
   VerifyUserIsAdmin,
 } = require("@/middleware/auth/auth-middleware");
 const UserController = require("@/controller/user/user-controller");
+
+// 获取所有的用户
+UserRouter.get("/list", VerifyUserAuth, UserController.getAllUserList);
 // 注册
 UserRouter.post(
   "/register",
@@ -20,6 +23,7 @@ UserRouter.post(
 );
 // 登录
 UserRouter.post("/doLogin", VerifyLoginAuth, UserController.doLogin);
+
 // 更新用户
 UserRouter.patch("/update", VerifyUserAuth, UserController.updateUser);
 // 删除用户
@@ -30,5 +34,7 @@ UserRouter.delete(
   VerifyUserIsAdmin,
   UserController.deleteUser
 );
+
+// 禁用用户登录
 
 module.exports = UserRouter;

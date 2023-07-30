@@ -28,6 +28,11 @@ class LabelService {
     const [result] = await pool.execute(text, [labelId]);
     return result;
   }
+  async getLabelAllList() {
+    const text = `SELECT * FROM label`;
+    const [result] = await pool.execute(text);
+    return result;
+  }
 }
 
 module.exports = new LabelService();
