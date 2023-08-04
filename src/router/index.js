@@ -3,8 +3,6 @@ const path = require("path");
 const cors = require("koa2-cors"); // 解决跨域问题
 const isDev = process.env.NODE_ENV === "development";
 
-console.log(isDev);
-
 const useRouter = (app) => {
   // 设置跨域
   app.use(

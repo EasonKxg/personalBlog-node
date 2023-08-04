@@ -9,6 +9,7 @@ const NOT_PERMISSION = "not_permission"; // 无权限操作
 const INVALID_OPERATION = "invalid_operation"; // 无效操作
 const NO_DATA = "no_data"; // 无数据
 const DATA_IS_EXISTS = "data_is_exists"; // 数据已存在
+const EXPIRE_TOKEN = "expire_token"; // token过期
 
 module.exports = {
   NAME_IS_EXISTS,
@@ -22,4 +23,5 @@ module.exports = {
   INVALID_OPERATION,
   NO_DATA,
   DATA_IS_EXISTS,
+  EXPIRE_TOKEN,
 };

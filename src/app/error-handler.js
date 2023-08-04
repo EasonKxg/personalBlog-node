@@ -85,6 +85,13 @@ const errorHandler = (error, cxt) => {
         msg: "数据已存在",
       };
       break;
+    case errorTypes.EXPIRE_TOKEN:
+      status = 401;
+      message = {
+        code: status,
+        msg: "token已过期",
+      };
+      break;
     default:
       status = 500;
       message = {

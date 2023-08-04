@@ -13,7 +13,7 @@ class UserService {
       const [result] = await pool.execute(text, [name]);
       return result;
     } catch (error) {
-      +console.log(error);
+      console.log(error);
     }
   }
   // 删除用户

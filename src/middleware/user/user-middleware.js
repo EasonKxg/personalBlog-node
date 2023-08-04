@@ -32,6 +32,7 @@ const VerifyUser = async (cxt, next) => {
 
 // 验证登录
 const VerifyLoginAuth = async (cxt, next) => {
+  console.log("验证登录");
   try {
     // 判断输入是否合法
     const { name, password } = cxt.request.body;

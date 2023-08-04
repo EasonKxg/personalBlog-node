@@ -21,7 +21,13 @@ const VerifyUserAuth = async (cxt, next) => {
     cxt.user = user;
     await next();
   } catch (error) {
-    console.log(error, "VerifyUserAuth");
+    if (error.message === "jwt expired") {
+      const error = new Error(errorTypes.EXPIRE_TOKEN);
+      cxt.app.emit("error", error, cxt);
+      return;
+    }
+    console.log(error);
+    console.log("验证用户的", "VerifyUserAuth");
   }
 };
 
