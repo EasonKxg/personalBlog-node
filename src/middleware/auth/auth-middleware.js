@@ -17,7 +17,6 @@ const VerifyUserAuth = async (cxt, next) => {
     const user = jwt.verify(token, PUBLIC_KEY, {
       algorithms: ["RS256"],
     });
-
     cxt.user = user;
     await next();
   } catch (error) {
@@ -26,8 +25,7 @@ const VerifyUserAuth = async (cxt, next) => {
       cxt.app.emit("error", error, cxt);
       return;
     }
-    console.log(error);
-    console.log("验证用户的", "VerifyUserAuth");
+    console.log(error, "验证用户的", "VerifyUserAuth");
   }
 };
 
